@@ -10,37 +10,39 @@ class BasicTextFormField extends StatelessWidget {
 
   const BasicTextFormField({
     required this.pathToIcon,
-    this.initialValue = '',
     super.key,
+    this.initialValue = '',
     this.pathToSufIcon,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      initialValue: initialValue,
-      decoration: InputDecoration(
-        prefixIcon: ImageIcon(
-          AssetImage(pathToIcon), // Icon on the left side
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: MyColors.borderPurpleColor, // Color of the border
-            width: 3,
+        initialValue: initialValue,
+        decoration: InputDecoration(
+          prefixIcon: ImageIcon(
+            AssetImage(pathToIcon),
           ),
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: MyColors.borderPurpleColor,
-            width: 3,
+          suffixIcon: pathToSufIcon != null
+              ? ImageIcon(AssetImage(pathToSufIcon!))
+              : null,
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: MyColors.borderPurpleColor,
+              width: 3,
+            ),
+            borderRadius: BorderRadius.circular(10),
+
           ),
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        suffixIcon: pathToSufIcon != null
-            ? ImageIcon(AssetImage(pathToSufIcon!))
-            : null,
-      ),
-    );
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: MyColors.borderPurpleColor,
+                width: 3,
+              ),
+              borderRadius: BorderRadius.circular(10),
+        )
+    ),);
   }
 }
+
+
